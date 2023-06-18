@@ -31,26 +31,6 @@
                         <input type="password" name="password" id="password" class="input">
                     </label>
                 </div>
-
-                <div class="login-icons">
-                    <button type="button" class="icon-button">
-                        <img src="./assets/img/facebook-icon.png" alt="facebook-icon">
-                    </button>
-
-                    <button type="button" class="icon-button">
-                        <img src="./assets/img/google-icon.png" alt="google-icon">
-                    </button>
-
-                    <button type="button" class="icon-button">
-                        <img src="./assets/img/apple-icon.png" alt="apple-icon">
-                    </button>
-                </div>
-
-                <div class="textfield-checkbox">
-                    <label for="checkbox" class="login-label-checkbox">
-                        <input type="checkbox" name="checkbox" class="input-checkbox">Manter Login
-                    </label>
-                </div>
             </div>
             
             <div class="wrapper">
@@ -62,9 +42,6 @@
                         </svg>
                     </button>
                 </div>
-
-                <a href="#" class="login-link">não consegue iniciar sessão?</a>
-                <a href="#" class="login-link">criar conta</a>
             </div>
         </div>
 
