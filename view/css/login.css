@@ -10,6 +10,7 @@
     --medium-grey-color: #a7a7a7;
     --deep-grey-color: #343434;
     --blue-color: #1B77F3;
+    --dark-blue-color: #1B1F27;
 }
 
 * {
@@ -20,6 +21,10 @@
   outline: none;
 }
 
+body {
+    background-color: var(--dark-blue-color);
+}
+
 .container {
     display: flex;
 }
@@ -27,42 +32,43 @@
 .login {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     width: 100%;
     max-width: 500px;
     min-height: 100vh;
     background-color: var(--white-color);
-    padding: clamp(35px, 8%, 70px); 
+    padding: clamp(35px, 8%, 70px);
 }
 
-.wrapper {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.logo-teste {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 5.5rem;
 }
 
-.wallpaper {
-    width: 100%;
-    background-image: url('../img/Wallpaper.jpg');
-    background-size: cover;
-    background-position: center center;
-}
-
-.login-logo {
-    width: 130px;
+.img-logo {
+    width: 100px;
     margin-bottom: 80px;
+    height: 120px;
+    overflow: hidden;
 }
 
 .login-title {
     color: var(--deep-grey-color);
     font-size: 1.5rem;
+    text-align: center;
 }
 
+.login-form {
+    width: 90%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+} 
+
 .textfield {
-    /* background-color: red; */
     width: 100%;
     display: block;
     margin: 20px;
@@ -100,47 +106,6 @@
     margin: 8px 10px;
 }
 
-.textfield-checkbox {
-    width: 100%;
-    margin: 15px 0 50px;
-    margin-bottom: 0px;
-    display: flex;
-    align-items: center;
-}
-
-.login-label-checkbox {
-    width: 100%;
-    margin: 15px 0 50px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-}
-
-.input-checkbox {
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    background: var(--light-grey-color);
-    margin-right: 8px;
-    border-radius: 3px;
-}
-
-.input-checkbox:checked {
-    background: var(--red-color);
-}
-
-.input-checkbox:checked:after {
-    content: ' ';
-    display: block;
-    width: 5px;
-    height: 10px;
-    border: 3px solid rgb(255, 255, 255);
-    border-width:  0 3px 3px 0;
-    transform: rotate(45deg);
-    margin: 2px 6px;
-}
-
 div .login-btn {
     width: 60px;
     height: 60px;
@@ -152,7 +117,8 @@ div .login-btn {
     border-radius: 20px;
     border: none;
     cursor: pointer;
-    margin-bottom: 40px;
+    margin-top: 1rem;
+    margin-left: 9rem;
 }
 
 .login-btn svg {
@@ -167,13 +133,4 @@ div .login-btn {
 
 .login-btn:disabled svg {
     fill: var(--grey-color);
-}
-
-.login-link {
-    font-size: 0.8rem;
-    text-decoration: none;
-    color: var(--medium-grey-color);
-    text-transform: uppercase;
-    margin-bottom: 7px;
-    font-weight: 700;
 }
