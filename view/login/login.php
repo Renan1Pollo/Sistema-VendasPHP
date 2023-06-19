@@ -23,14 +23,14 @@
                     <div class="textfield">
                         <label for="User-name" class="login-label">
                             <span>Nome de Usuario</span>
-                            <input type="text" name="user-name" id="user-name" class="input">
+                            <input type="text" name="usuario" id="user-name" class="input">
                         </label>
                     </div>
 
                     <div class="textfield">
                         <label for="password" class="login-label">
                             <span>Senha</span>
-                            <input type="password" name="password" id="password" class="input">
+                            <input type="password" name="senha" id="password" class="input">
                         </label>
                     </div>
 
