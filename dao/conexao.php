@@ -1,6 +1,6 @@
 <?php
 
-namespace DAL;
+namespace dao;
 
 use PDO;
 
@@ -20,8 +20,8 @@ class Conexao {
         if (self::$cont == null) {
             try {
                 self::$cont = new  \PDO("mysql:host=". self::$dbHost .";dbname=" . self::$dbNome , self::$dbUsuario, self::$dbSenha);
-            } catch (\PDOException $exception) {
-                die ($exception->getMessage());
+            } catch (\PDOException $ex) {
+                die ($ex->getMessage());
             }
  
         }
