@@ -28,7 +28,7 @@
             $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
             $_SESSION['usuario'] = $usuario['usuario'];
-            $_SESSION['nome'] = $usuario['nome'];
+            $_SESSION['senha'] = $usuario['senha'];
 
             header("Location: ../../view/index.php");
             exit();
