@@ -30,7 +30,7 @@
             $_SESSION['usuario'] = $usuario['usuario'];
             $_SESSION['senha'] = $usuario['senha'];
 
-            header("Location: ../../view/index.php");
+            header("Location: ../../view/index.html");
             exit();
         } else {
             $loginError = "Código ou senha incorretos";
