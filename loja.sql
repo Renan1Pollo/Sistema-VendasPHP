@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 18-Jun-2023 às 05:02
+-- Tempo de geração: 22/06/2023 às 03:59
 -- Versão do servidor: 10.4.28-MariaDB
--- versão do PHP: 8.2.4
+-- Versão do PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `admin`
+-- Estrutura para tabela `admin`
 --
 
 CREATE TABLE `admin` (
@@ -34,10 +34,17 @@ CREATE TABLE `admin` (
   `email` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Despejando dados para a tabela `admin`
+--
+
+INSERT INTO `admin` (`id`, `usuario`, `senha`, `email`) VALUES
+(1, 'renan', '12345', 'renan@email.com');
+
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `categoria`
+-- Estrutura para tabela `categoria`
 --
 
 CREATE TABLE `categoria` (
@@ -48,7 +55,7 @@ CREATE TABLE `categoria` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `cliente`
+-- Estrutura para tabela `cliente`
 --
 
 CREATE TABLE `cliente` (
@@ -64,7 +71,7 @@ CREATE TABLE `cliente` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `produto`
+-- Estrutura para tabela `produto`
 --
 
 CREATE TABLE `produto` (
@@ -79,7 +86,7 @@ CREATE TABLE `produto` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `venda`
+-- Estrutura para tabela `venda`
 --
 
 CREATE TABLE `venda` (
@@ -92,7 +99,7 @@ CREATE TABLE `venda` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `vendaproduto`
+-- Estrutura para tabela `vendaproduto`
 --
 
 CREATE TABLE `vendaproduto` (
@@ -108,39 +115,39 @@ CREATE TABLE `vendaproduto` (
 --
 
 --
--- Índices para tabela `admin`
+-- Índices de tabela `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `categoria`
+-- Índices de tabela `categoria`
 --
 ALTER TABLE `categoria`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `cliente`
+-- Índices de tabela `cliente`
 --
 ALTER TABLE `cliente`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `produto`
+-- Índices de tabela `produto`
 --
 ALTER TABLE `produto`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idCategoria` (`idCategoria`);
 
 --
--- Índices para tabela `venda`
+-- Índices de tabela `venda`
 --
 ALTER TABLE `venda`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idCliente` (`idCliente`);
 
 --
--- Índices para tabela `vendaproduto`
+-- Índices de tabela `vendaproduto`
 --
 ALTER TABLE `vendaproduto`
   ADD PRIMARY KEY (`id`),
@@ -148,14 +155,14 @@ ALTER TABLE `vendaproduto`
   ADD KEY `idProduto` (`idProduto`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- AUTO_INCREMENT para tabelas despejadas
 --
 
 --
 -- AUTO_INCREMENT de tabela `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `categoria`
@@ -188,23 +195,23 @@ ALTER TABLE `vendaproduto`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- Restrições para despejos de tabelas
+-- Restrições para tabelas despejadas
 --
 
 --
--- Limitadores para a tabela `produto`
+-- Restrições para tabelas `produto`
 --
 ALTER TABLE `produto`
   ADD CONSTRAINT `produto_ibfk_1` FOREIGN KEY (`idCategoria`) REFERENCES `categoria` (`id`);
 
 --
--- Limitadores para a tabela `venda`
+-- Restrições para tabelas `venda`
 --
 ALTER TABLE `venda`
   ADD CONSTRAINT `venda_ibfk_1` FOREIGN KEY (`idCliente`) REFERENCES `cliente` (`id`);
 
 --
--- Limitadores para a tabela `vendaproduto`
+-- Restrições para tabelas `vendaproduto`
 --
 ALTER TABLE `vendaproduto`
   ADD CONSTRAINT `vendaproduto_ibfk_1` FOREIGN KEY (`idVenda`) REFERENCES `venda` (`id`),
