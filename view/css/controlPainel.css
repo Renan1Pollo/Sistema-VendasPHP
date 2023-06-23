@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lexend Deca', sans-serif;
+    outline: none;
+    list-style: none;
+    text-decoration: none;
+    color: var(--white-smoke-color);
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    background-color: var(--white-smoke-color);
+}
+
+.sidebar-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 30%;
+    height: 100vh;
+    padding: 2.5rem;
+    background-color: var(--dark-blue-color);
+}
+
+.menu-content {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.img-logo {
+    width: 100px;
+    margin-bottom: 4rem;
+    height: 120px;
+    overflow: hidden;
+}
+
+.menu-title {
+    font-size: 2rem;
+    margin-right: 3rem;
+    margin-bottom: 2rem;
+}
+
+.navigation .menu-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.navigation .menu-list li {
+    margin-bottom: 1.5rem;
+}
+
+.navigation .menu-list li a {
+    text-align: left;
+    font-size: 1.3rem;
+}
+
+.navigation .menu-list li a:hover {
+    color: #CF3C3F;
+}
+
+.options-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    padding: 2.5rem;
+    background-color: var(--dark-blue-color);
+    color: #CF3C3F;
+}

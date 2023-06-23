@@ -30,7 +30,7 @@
             $_SESSION['usuario'] = $usuario['usuario'];
             $_SESSION['senha'] = $usuario['senha'];
 
-            header("Location: ../../view/index.html");
+            header("Location: ../../view/control-painel/controlPainel.php");
             exit();
         } else {
             $loginError = "Código ou senha incorretos";
@@ -53,7 +53,7 @@
     <body>
         <section class="container">
             <div class="login">
-                <div class="logo-teste">
+                <div class="login-logo">
                     <img src="../../view/img/spitfire-logo.png" class="img-logo">
                 </div>
 

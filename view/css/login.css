@@ -25,10 +25,6 @@ body {
     background-color: var(--dark-blue-color);
 }
 
-.container {
-    display: flex;
-}
-
 .login {
     display: flex;
     flex-direction: column;
@@ -41,7 +37,7 @@ body {
     padding: clamp(35px, 8%, 70px);
 }
 
-.logo-teste {
+.login-logo {
     width: 100px;
     height: 100px;
     margin-bottom: 5.5rem;
@@ -54,12 +50,6 @@ body {
     overflow: hidden;
 }
 
-.login-title {
-    color: var(--deep-grey-color);
-    font-size: 1.5rem;
-    text-align: center;
-}
-
 .login-form {
     width: 90%;
     height: 50%;
@@ -67,6 +57,12 @@ body {
     flex-direction: column;
     justify-content: center;
 } 
+
+.login-title {
+    color: var(--deep-grey-color);
+    font-size: 1.5rem;
+    text-align: center;
+}
 
 .textfield {
     width: 100%;
