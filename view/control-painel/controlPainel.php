@@ -25,44 +25,34 @@
             </div>
         </aside>
 
-        <div class="options-content">
-
-        </div>
-
-        <!-- <section id="Options" class="options-content">
-            <div class="options-content">
+        <section id="Options" class="options-content">
+            <div class="main-content">
                 <h2 class="grid-main-heading">Opções</h2>
         
                 <div class="grid">
-                    <!-- <div class="gallery-img">
-                        <img src="http://source.unsplash.com/random/360x360?r=1" alt="random image from unsplash" />
+                    <div class="card">
+                        <Span>Categorias</Span>
+                    </div>
+                
+                    <div class="card">
+                        <Span>Produtos</Span>
                     </div>
 
-                    <div class="gallery-img">
-                        <img src="http://source.unsplash.com/random/360x360?r=2" alt="random image from unsplash" />
+                    <div class="card">
+                        <Span>Clientes</Span>
                     </div>
 
-                    <div class="gallery-img">
-                        <img src="http://source.unsplash.com/random/360x360?r=3" alt="random image from unsplash" />
+                    <div class="card">
+                        <Span>Venda</Span>
                     </div>
 
-                    <div class="gallery-img">
-                        <img src="http://source.unsplash.com/random/360x360?r=4" alt="random image from unsplash" />
+                    <div class="card">
+                        <Span>Sair</Span>
                     </div>
 
-                    <div class="gallery-img">
-                        <img src="http://source.unsplash.com/random/360x360?r=5" alt="random image from unsplash" />
-                    </div>
-
-                    <div class="gallery-img">
-                        <img src="http://source.unsplash.com/random/360x360?r=6" alt="random image from unsplash" />
-                    </div> -->
                 </div>
             </div>
         </section>
-         -->
-
-
 
         <script src="" async defer></script>
     </body>
