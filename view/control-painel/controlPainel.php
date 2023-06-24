@@ -19,7 +19,7 @@
                         <li><a href="">Venda</a></li>
                         <li><a href="">Cliente</a></li> 
                         <li><a href="">Produto</a></li>
-                        <li><a href="">Categoria</a></li>
+                        <li><a href="../categoria/lstCategorias.php">Categoria</a></li>
                     </ul>
                 </nav>
             </div>
@@ -31,23 +31,23 @@
         
                 <div class="grid">
                     <div class="card">
-                        <Span>Categorias</Span>
+                        <a href="../categoria/lstCategorias.php">Categoria</a>
                     </div>
                 
                     <div class="card">
-                        <Span>Produtos</Span>
+                        <a>Produtos</a>
                     </div>
 
                     <div class="card">
-                        <Span>Clientes</Span>
+                        <a>Clientes</a>
                     </div>
 
                     <div class="card">
-                        <Span>Venda</Span>
+                        <a>Venda</a>
                     </div>
 
                     <div class="card">
-                        <Span>Sair</Span>
+                        <a>Sair</a>
                     </div>
 
                 </div>

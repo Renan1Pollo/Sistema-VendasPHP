@@ -37,6 +37,10 @@ class CategoriaDao {
         $linha = $query->fetch(\PDO::FETCH_ASSOC);
         Conexao::desconectar();
 
+        if (!$linha) {
+            return null;
+        }
+
         $categoria = new Categoria();
         $categoria->setId($linha['id']); 
         $categoria->setDescricao($linha['descricao']);
