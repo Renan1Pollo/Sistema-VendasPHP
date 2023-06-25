@@ -35,3 +35,7 @@ class ProdutoBll {
 
     public function deleteById(int $id) {
         $dao = new ProdutoDao();
+        return $dao->deleteById($id);
+    }
+}
+?>
