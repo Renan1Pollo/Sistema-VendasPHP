@@ -30,7 +30,7 @@ class CategoriaBll {
 
     public function deleteById(int $id) {
         $dao = new CategoriaDao();
-        return $dao->findAll();
+        return $dao->deleteById($id);
     }
 }
 ?>

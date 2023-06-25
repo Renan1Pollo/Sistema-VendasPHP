@@ -74,13 +74,12 @@ if ($busca == null) {
                                         <td>
                                             <a href="addCategoria.php" class="btn btn-primary btn-sm">Adicionar
                                                 Categoria</a>
+
                                             <a href="attCategoria.php?id=<?= $categoria->getId(); ?>"
                                                 class="btn btn-success btn-sm">Editar</a>
-                                            <form action="categoria-delete.php" method="POST" class="d-inline">
-                                                <input type="hidden" name="id" value="<?= $categoria->getId(); ?>">
-                                                <button type="submit" name="delete_categoria"
-                                                    class="btn btn-danger btn-sm">Excluir</button>
-                                            </form>
+
+                                            <a onclick="JavaScript:remover(<?php echo $categoria->getId(); ?>)"
+                                                class="btn btn-danger btn-sm">Excluir</a>
                                         </td>
                                     </tr>
                                 <?php } ?>
@@ -103,3 +102,11 @@ if ($busca == null) {
 </body>
 
 </html>
+
+<script>
+    function remover(id) {
+        if (confirm('Excluir a Categoria ' + id + '?')) {
+            location.href = 'remoCategoria.php?id=' + id;
+        }
+    }
+</script>

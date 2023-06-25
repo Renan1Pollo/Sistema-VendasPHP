@@ -33,7 +33,7 @@
                     </div>
                     <div class="card-footer">
                         <h4>
-                            <a href="../control-painel/controlPainel.php" class="btn btn-danger float-end">Voltar</a>
+                            <a href="../../view/categoria/lstCategorias.php" class="btn btn-danger float-end">Voltar</a>
                         </h4>
                     </div>
                 </div>

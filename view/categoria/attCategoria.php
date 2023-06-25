@@ -6,6 +6,8 @@ $id = $_GET['id'];
 $bll = new  CategoriaBll();
 $categoria = $bll->findById($id);
 
+echo $categoria->getDescricao();
+
 ?>
 
 <!doctype html>
@@ -31,16 +33,16 @@ $categoria = $bll->findById($id);
                         <h3>Editar Categoria</h3>
                     </div>
                     <div class="card-body">
-                        <form action="code.php" method="POST">
-                            <input type="hidden" name="student_id" value="<?= $categoria['id']; ?>">
+                        <form action="updateCategoria.php" method="POST">
+                            <input type="hidden" name="txtId" value="<?= $categoria->getId(); ?>">
 
                             <div class="mb-3">
-                                <label>Descricao da Categoria</label>
-                                <input type="text" name="descricao" class="form-control">
+                                <label>Descrição da Categoria</label>
+                                <input type="text" name="txtDescricao" class="form-control">
                             </div>
                             <div class="mb-3">
-                                <button type="submit" name="update_student" class="btn btn-primary">
-                                    Update Student
+                                <button type="submit" name="atualizar-categoria" class="btn btn-primary">
+                                    Atualizar
                                 </button>
                             </div>
 
@@ -48,7 +50,7 @@ $categoria = $bll->findById($id);
                     </div>
                     <div class="card-footer">
                         <h4>
-                            <a href="../control-painel/controlPainel.php" class="btn btn-danger float-end">Voltar</a>
+                            <a href="../../view/categoria/lstCategorias.php" class="btn btn-danger float-end">Voltar</a>
                         </h4>
                     </div>
                 </div>
