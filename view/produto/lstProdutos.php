@@ -18,12 +18,7 @@ if (isset($_GET['busca'])) {
 if ($busca == null) {
     $lstProduto = $bll->findAll();
 } else {
-    if (is_numeric($busca)) {
-        $produto = $bll->findById($busca);
-        $lstProduto = ($produto !== null) ? [$produto] : [];
-    } else {
-        $lstProduto = $bll->findByDescricao($busca);
-    }
+    $lstProduto = $bll->findByDescricao($busca);
 }
 ?>
 
