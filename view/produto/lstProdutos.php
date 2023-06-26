@@ -36,7 +36,7 @@ if ($busca == null) {
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../view/css/categoria.css">
+    <link rel="stylesheet" href="../../view/css/formatacao.css">
     <title>Listagem de Produtos</title>
 </head>
 
@@ -79,8 +79,9 @@ if ($busca == null) {
                                             <?php echo $produto->getDescricao(); ?>
                                         </td>
                                         <td>
-                                            <?php $categoria = $categoriaBll->findById($produto->getIdCategoria()); ?>
-                                            <?php echo $categoria->getDescricao(); ?>
+                                            <?php $categoria = $categoriaBll->findById($produto->getIdCategoria());
+                                            echo $categoria->getDescricao();
+                                            ?>
                                         </td>
                                         <td>
                                             <?php echo $produto->getQtdeEstoque(); ?>
@@ -89,7 +90,7 @@ if ($busca == null) {
                                             <?php echo $produto->getValorUnitario(); ?>
                                         </td>
                                         <td>
-                                            <a href="addCategoria.php" class="btn btn-primary btn-sm">Adicionar
+                                            <a href="addProduto.php" class="btn btn-primary btn-sm">Adicionar
                                                 Produtos</a>
 
                                             <a href="attCategoria.php?id=<?= $produto->getId(); ?>"

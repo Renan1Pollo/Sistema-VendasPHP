@@ -13,14 +13,14 @@ class ProdutoBll {
         return $dao->findAll();
     }
 
-    public function findByDescricao(int $id) {
+    public function findById(int $id) {
         $dao = new ProdutoDao();
         return $dao->findById($id);
     }
 
-    public function findById(int $id) {
+    public function findByDescricao(string $descricao) {
         $dao = new ProdutoDao();
-        return $dao->findById($id);
+        return $dao->findByDescricao($descricao);
     }
 
     public function save(Produto $produto) {
