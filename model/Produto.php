@@ -3,11 +3,12 @@
 namespace model;
 
 class Produto {
-    private int $id;
-    private string $descricao;
-    private int $idCategoria;
-    private int $qtdeEstoque;
-    private float $valorUnitario;
+
+    private $id;
+    private $descricao;
+    private $idCategoria;
+    private $qtdeEstoque;
+    private $valorUnitario;
 
     public function getId() {
         return $this->id;

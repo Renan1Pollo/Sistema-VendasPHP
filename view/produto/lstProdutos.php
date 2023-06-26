@@ -88,7 +88,7 @@ if ($busca == null) {
                                             <a href="addProduto.php" class="btn btn-primary btn-sm">Adicionar
                                                 Produtos</a>
 
-                                            <a href="attCategoria.php?id=<?= $produto->getId(); ?>"
+                                            <a href="attProduto.php?id=<?= $produto->getId(); ?>"
                                                 class="btn btn-success btn-sm">Editar</a>
 
                                             <a onclick="JavaScript:remover(<?php echo $produto->getId(); ?>)"
@@ -119,7 +119,7 @@ if ($busca == null) {
 <script>
     function remover(id) {
         if (confirm('Excluir o Produto ' + id + '?')) {
-            location.href = 'remoCategoria.php?id=' + id;
+            location.href = 'remoProduto.php?id=' + id;
         }
     }
 </script>

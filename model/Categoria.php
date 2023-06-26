@@ -2,8 +2,8 @@
 namespace model;
 
 class Categoria {
-    public int $id;
-    public string $descricao;
+    private $id;
+    private $descricao;
 
     public function __construct() {
 

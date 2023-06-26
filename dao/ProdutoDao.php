@@ -16,7 +16,7 @@ class ProdutoDao {
 
         $lstProdutos = []; 
 
-        foreach ($result as $linha){
+        foreach ($result as $linha) {
             $produto = new Produto();
             $produto->setId($linha['id']);
             $produto->setDescricao($linha['descricao']);
