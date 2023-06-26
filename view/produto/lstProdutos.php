@@ -1,9 +1,12 @@
 <?php
+include_once '../../bll/ProdutoBll.php';
 include_once '../../bll/CategoriaBll.php';
 
-use bll\CategoriaBll;
+use BLL\CategoriaBll;
+use bll\ProdutoBll;
 
-$bll = new CategoriaBll();
+$bll = new ProdutoBll();
+$categoriaBll = new CategoriaBll();
 
 if (isset($_GET['busca'])) {
     $busca = $_GET['busca'];
@@ -13,12 +16,15 @@ if (isset($_GET['busca'])) {
 
 // verificação para o tipo de busca
 if ($busca == null) {
-    $lstCategoria = $bll->findAll();
+    $lstProduto = $bll->findAll();
 } else {
-    $categoria = $bll->findById($busca);
-    $lstCategoria = ($categoria !== null) ? [$categoria] : [];
+    if (is_numeric($busca)) {
+        $produto = $bll->findById($busca);
+        $lstProduto = ($produto !== null) ? [$produto] : [];
+    } else {
+        $lstProduto = $bll->findByDescricao($busca);
+    }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +37,7 @@ if ($busca == null) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../view/css/categoria.css">
-    <title>Listagem de Categorias</title>
+    <title>Listagem de Produtos</title>
 </head>
 
 <body>
@@ -40,11 +46,11 @@ if ($busca == null) {
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3>Listagem de Categorias</h4>
+                        <h3>Listagem de Produtos</h4>
                     </div>
                     <div class="card-search">
-                        <form action="../categoria/lstCategorias.php" method="GET" id="" class="">
-                            <h5>Pesquisa de Categorias</h5>
+                        <form action="../produto/lstProdutos.php" method="GET" id="" class="">
+                            <h5>Pesquisa de Produtos</h5>
                             <div class="teste">
                                 <input type="text" class="input-pesquisa" id="txtBusca" name="busca">
                                 <button type="submit" class="btn btn-primary float-end"><span>Pesquisar</span></button>
@@ -57,26 +63,39 @@ if ($busca == null) {
                                 <tr>
                                     <th>ID</th>
                                     <th>Descrição</th>
+                                    <th>Categoria</th>
+                                    <th>Qtde em Estoque</th>
+                                    <th>Valor Unitário</th>
                                     <th>Ações</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($lstCategoria as $categoria) { ?>
+                                <?php foreach ($lstProduto as $produto) { ?>
                                     <tr>
                                         <td>
-                                            <?php echo $categoria->getId(); ?>
+                                            <?php echo $produto->getId(); ?>
                                         </td>
                                         <td>
+                                            <?php echo $produto->getDescricao(); ?>
+                                        </td>
+                                        <td>
+                                            <?php $categoria = $categoriaBll->findById($produto->getIdCategoria()); ?>
                                             <?php echo $categoria->getDescricao(); ?>
                                         </td>
                                         <td>
+                                            <?php echo $produto->getQtdeEstoque(); ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $produto->getValorUnitario(); ?>
+                                        </td>
+                                        <td>
                                             <a href="addCategoria.php" class="btn btn-primary btn-sm">Adicionar
-                                                Categoria</a>
+                                                Produtos</a>
 
-                                            <a href="attCategoria.php?id=<?= $categoria->getId(); ?>"
+                                            <a href="attCategoria.php?id=<?= $produto->getId(); ?>"
                                                 class="btn btn-success btn-sm">Editar</a>
 
-                                            <a onclick="JavaScript:remover(<?php echo $categoria->getId(); ?>)"
+                                            <a onclick="JavaScript:remover(<?php echo $produto->getId(); ?>)"
                                                 class="btn btn-danger btn-sm">Excluir</a>
                                         </td>
                                     </tr>
@@ -103,7 +122,7 @@ if ($busca == null) {
 
 <script>
     function remover(id) {
-        if (confirm('Excluir a Categoria ' + id + '?')) {
+        if (confirm('Excluir o Produto ' + id + '?')) {
             location.href = 'remoCategoria.php?id=' + id;
         }
     }
