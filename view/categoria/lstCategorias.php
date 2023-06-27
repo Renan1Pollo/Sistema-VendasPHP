@@ -1,4 +1,5 @@
 <?php
+include('../../bll/protected.php');
 include_once '../../bll/CategoriaBll.php';
 
 use bll\CategoriaBll;

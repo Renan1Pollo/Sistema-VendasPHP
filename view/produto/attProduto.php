@@ -2,6 +2,7 @@
 
 use bll\ProdutoBll;
 
+include('../../bll/protected.php');
 include_once '../../bll/ProdutoBll.php';
 
 $id = $_GET['id'];

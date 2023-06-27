@@ -1,3 +1,9 @@
+<?php
+
+include('../../bll/protected.php');
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -51,7 +57,7 @@
                     </div>
 
                     <div class="card">
-                        <a>Sair</a>
+                        <a href="../login/logout.php">Sair</a>
                     </div>
 
                 </div>
@@ -65,3 +71,11 @@
 </body>
 
 </html>
+
+<script>
+    function sair(id) {
+        if (confirm('Deseja Sair da Seção?')) {
+            location.href = '../../' + id;
+        }
+    }
+</script>

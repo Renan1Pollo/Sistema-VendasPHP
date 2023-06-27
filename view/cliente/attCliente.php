@@ -2,6 +2,7 @@
 
 use bll\ClienteBll;
 
+include('../../bll/protected.php');
 include_once '../../bll/ClienteBll.php';
 
 $id = $_GET['id'];
