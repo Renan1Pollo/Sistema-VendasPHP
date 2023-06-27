@@ -17,7 +17,7 @@
                 <nav class="navigation">
                     <ul class="menu-list">
                         <li><a href="">Venda</a></li>
-                        <li><a href="">Cliente</a></li> 
+                        <li><a href="../cliente/lstClientes.php">Cliente</a></li> 
                         <li><a href="../produto/lstProdutos.php">Produto</a></li>
                         <li><a href="../categoria/lstCategorias.php">Categoria</a></li>
                     </ul>
@@ -39,7 +39,7 @@
                     </div>
 
                     <div class="card">
-                        <a>Clientes</a>
+                        <a href="../cliente/lstClientes.php">Clientes</a>
                     </div>
 
                     <div class="card">
