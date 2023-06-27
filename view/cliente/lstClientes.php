@@ -91,7 +91,7 @@ if ($busca == null) {
                                             <a href="addCliente.php" class="btn btn-primary btn-sm">Adicionar
                                                 Clientes</a>
 
-                                            <a href="attProduto.php?id=<?= $cliente->getId(); ?>"
+                                            <a href="attCliente.php?id=<?= $cliente->getId(); ?>"
                                                 class="btn btn-success btn-sm">Editar</a>
 
                                             <a onclick="JavaScript:remover(<?php echo $cliente->getId(); ?>)"
@@ -122,7 +122,7 @@ if ($busca == null) {
 <script>
     function remover(id) {
         if (confirm('Excluir o Cliente ' + id + '?')) {
-            location.href = 'remoProduto.php?id=' + id;
+            location.href = 'remoCliente.php?id=' + id;
         }
     }
 </script>

@@ -9,8 +9,6 @@ $id = $_GET['id'];
 $bll = new ProdutoBll();
 $produto = $bll->findById($id);
 
-echo $produto->getDescricao();
-
 ?>
 
 <!doctype html>

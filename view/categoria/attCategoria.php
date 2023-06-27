@@ -6,8 +6,6 @@ $id = $_GET['id'];
 $bll = new  CategoriaBll();
 $categoria = $bll->findById($id);
 
-echo $categoria->getDescricao();
-
 ?>
 
 <!doctype html>

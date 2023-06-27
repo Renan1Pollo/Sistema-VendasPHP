@@ -43,3 +43,19 @@ body {
 h3 {
     text-align: center;
 }
+
+footer {
+    height: 2vh;
+    text-align: center;
+    font-size: 1.6rem;
+    background-color: var(--black-color);
+}
+
+.footer a {
+    color: var(--red-color);
+}
+
+.footer p {
+    margin: 0;
+    padding: 1rem;
+}
