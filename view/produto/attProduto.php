@@ -74,7 +74,9 @@ $produto = $bll->findById($id);
             </div>
         </div>
     </div>
-
+    <footer id="footer" class="footer white-bg">
+        <p>Feito com <span class="heart">♥</span> <a href="https://beacons.ai/renanpollo" target="_blank">Renan Pollo Benelli</a></p>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 

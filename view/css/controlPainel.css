@@ -4,7 +4,7 @@
     --white-color: #fff;
     --white-smoke-color: #F9F9F9;
     --black-color: #000;
-    --red-color:   #CF3C3F;
+    --red-color: #CF3C3F;
     --light-grey-color: #ECECEC;
     --grey-color: #C4C4C4;
     --medium-grey-color: #a7a7a7;
@@ -118,7 +118,7 @@
     width: 12rem;
     height: 6rem;
     display: flex;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
     background-color: var(--dark-blue-color);
 }
@@ -129,16 +129,18 @@
 }
 
 footer {
-    display: block;
+    height: 7vh;
     text-align: center;
-    font-size: 1.6rem;
+    font-size: 1.3rem;
+    background-color: var(--dark-blue-color);
+    border: 1px solid black;
 }
 
-.footer a {
-    color: var(--primary-color);
+.heart {
+    color: var(--red-color);
 }
 
 .footer p {
     margin: 0;
-    padding: 3rem;
+    padding: 1rem;
 }

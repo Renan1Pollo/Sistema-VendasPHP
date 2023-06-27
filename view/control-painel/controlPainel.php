@@ -59,8 +59,7 @@
         </section>
     </div>
     <footer id="footer" class="footer white-bg">
-        <p>Feito com <span class="heart">♥</span> <a href="https://beacons.ai/renanpollo" target="_blank">Renan Pollo
-                Benelli</a></p>
+        <p>Feito com <span class="heart">♥</span> <a href="https://beacons.ai/renanpollo" target="_blank">Renan Pollo Benelli</a></p>
     </footer>
     <script src="" async defer></script>
 </body>
