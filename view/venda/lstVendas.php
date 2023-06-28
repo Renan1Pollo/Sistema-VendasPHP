@@ -155,6 +155,8 @@ if ($busca == null) {
 
     function updateEstoque() {
         let id = prompt("Digite o id da Venda: ");
-        location.href = 'fecharVenda.php?id=' + id;
+        if(id!=null)
+            location.href = 'fecharVenda.php?id=' + id;
+        else location.href = 'lstVendas.php';
     }
 </script>
