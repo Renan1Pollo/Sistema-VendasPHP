@@ -118,8 +118,8 @@ class ProdutoDao {
     }
 
     public function updateEstoque(Produto $produto) {
-        $sql = "UPDATE produto SET qtde_estoque = :qtdeEstoque 
-            WHERE id = :id;";
+        $sql = "UPDATE produto SET qtde_estoque = qtde_estoque - :qtdeEstoque 
+        WHERE id = :id;";
 
         $conn = Conexao::conectar();
         $query = $conn->prepare($sql);
