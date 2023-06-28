@@ -26,7 +26,7 @@ include('../../bll/protected.php');
 
                 <nav class="navigation">
                     <ul class="menu-list">
-                        <li><a href="">Venda</a></li>
+                        <li><a href="../venda/lstVendas.php">Venda</a></li>
                         <li><a href="../cliente/lstClientes.php">Cliente</a></li>
                         <li><a href="../produto/lstProdutos.php">Produto</a></li>
                         <li><a href="../categoria/lstCategorias.php">Categoria</a></li>
@@ -53,11 +53,11 @@ include('../../bll/protected.php');
                     </div>
 
                     <div class="card">
-                        <a>Venda</a>
+                        <a href="../venda/lstVendas.php">Venda</a>
                     </div>
 
                     <div class="card">
-                        <a href="../login/logout.php">Sair</a>
+                        <a onclick="JavaScript:sair()">Sair</a>
                     </div>
 
                 </div>
@@ -73,9 +73,9 @@ include('../../bll/protected.php');
 </html>
 
 <script>
-    function sair(id) {
+    function sair() {
         if (confirm('Deseja Sair da Seção?')) {
-            location.href = '../../' + id;
+            location.href = '../login/logout.php';
         }
     }
 </script>

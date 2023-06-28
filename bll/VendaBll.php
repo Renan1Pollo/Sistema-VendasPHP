@@ -6,7 +6,7 @@ use model\Venda;
 
 include_once 'C:\xampp\htdocs\Sistema-VendasPHP\dao\VendaDao.php';
 
-class ProdutoBll {
+class VendaBll {
 
     public function findAll() {
         $dao = new VendaDao();

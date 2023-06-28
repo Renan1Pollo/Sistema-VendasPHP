@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 28/06/2023 às 02:13
+-- Tempo de geração: 28/06/2023 às 05:04
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -39,7 +39,8 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `usuario`, `senha`, `email`) VALUES
-(1, 'renan', '12345', 'renan@email.com');
+(1, 'renan', '12345', 'renan@email.com'),
+(2, 'admin', 'ads123', '');
 
 -- --------------------------------------------------------
 
@@ -132,6 +133,16 @@ CREATE TABLE `venda` (
   `data_venda` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Despejando dados para a tabela `venda`
+--
+
+INSERT INTO `venda` (`id`, `idCliente`, `idProduto`, `qtde_vendida`, `valor`, `data_venda`) VALUES
+(1, 1, 3, 5, 120, '2023-07-02'),
+(2, 2, 2, 7, 180, '2023-07-03'),
+(3, 3, 4, 2, 50, '2023-07-04'),
+(4, 1, 1, 3, 75, '2023-07-05');
+
 -- --------------------------------------------------------
 
 --
@@ -199,7 +210,7 @@ ALTER TABLE `vendaproduto`
 -- AUTO_INCREMENT de tabela `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `categoria`
