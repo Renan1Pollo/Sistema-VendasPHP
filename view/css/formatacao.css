@@ -52,7 +52,7 @@ h3 {
 }
 
 footer {
-    height: 7vh;
+    height: 10vh;
     text-align: center;
     font-size: 1.3rem;
     background-color: var(--white-smoke-color);
@@ -66,4 +66,9 @@ footer {
 .footer p {
     margin: 0;
     padding: 1rem;
+}
+
+.footer a {
+    text-decoration: none;
+    color: var(--black);
 }
