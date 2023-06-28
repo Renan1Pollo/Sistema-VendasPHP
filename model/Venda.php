@@ -5,8 +5,8 @@ namespace model;
 class Venda {
 
     private $id;
-    private $idProduto;
     private $idCliente;
+    private $idProduto;
     private $qtdeVendida;
     private $valorTotal;
     private $dataVenda;
@@ -16,15 +16,7 @@ class Venda {
     }
 
     public function setId(int $id) {
-        return $this->id = $id;
-    }
-
-    public function getIdProduto() {
-        return $this->idProduto;
-    }
-
-    public function setIdProduto(int $idProduto) {
-        return $this->idProduto = $idProduto;
+        $this->id = $id;
     }
 
     public function getIdCliente() {
@@ -32,7 +24,15 @@ class Venda {
     }
 
     public function setIdCliente(int $idCliente) {
-        return $this->idCliente = $idCliente;
+        $this->idCliente = $idCliente;
+    }
+
+    public function getIdProduto() {
+        return $this->idProduto;
+    }
+
+    public function setIdProduto(int $idProduto) {
+        $this->idProduto = $idProduto;
     }
 
     public function getQtdeVendida() {
@@ -40,7 +40,7 @@ class Venda {
     }
 
     public function setQtdeVendida(int $qtdeVendida) {
-        return $this->qtdeVendida = $qtdeVendida;
+        $this->qtdeVendida = $qtdeVendida;
     }
 
     public function getValorTotal() {
@@ -48,16 +48,17 @@ class Venda {
     }
 
     public function setValorTotal(float $valorTotal) {
-        return $this->valorTotal = $valorTotal;
+        $this->valorTotal = $valorTotal;
     }
 
     public function getDataVenda() {
         return $this->dataVenda;
     }
 
-    public function setDataVenda(string $dataVenda) {
-        return $this->dataVenda = $dataVenda;
+    public function setDataVenda($dataVenda) {
+        $this->dataVenda = $dataVenda;
     }
 }
+
 
 ?>

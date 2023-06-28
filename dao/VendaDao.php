@@ -10,21 +10,23 @@ include_once '../../model/Venda.php';
 class VendaDao {
 
     public function findAll() {
-        $sql = "SELECT * FROM `venda`;";
+        $sql = "SELECT * FROM venda";
 
-        $conn = Conexao::conectar(); 
-        $result = $conn->query($sql); 
+        $conn = Conexao::conectar();
+        $query = $conn->query($sql);
+        $result = $query->fetchAll();
         Conexao::desconectar();
 
-        $lstVendas = []; 
+        $lstVendas = [];
 
         foreach ($result as $linha) {
             $venda = new Venda();
             $venda->setId($linha['id']);
-            $venda->setIdProduto($linha['produto']);
-            $venda->setIdCliente($linha['cliente']);
+            $venda->setIdProduto($linha['idProduto']);
+            $venda->setIdCliente($linha['idCliente']);
             $venda->setQtdeVendida($linha['qtde_vendida']);
             $venda->setValorTotal($linha['valor']);
+            $venda->setDataVenda($linha['data_venda']);
 
             $lstVendas[] = $venda;
         }
@@ -48,18 +50,46 @@ class VendaDao {
     
         $venda = new Venda();
         $venda->setId($linha['id']);
-        $venda->setIdProduto($linha['produto']);
-        $venda->setIdCliente($linha['cliente']);
+        $venda->setIdProduto($linha['idProduto']);
+        $venda->setIdCliente($linha['idCliente']);
         $venda->setQtdeVendida($linha['qtde_vendida']);
         $venda->setValorTotal($linha['valor']);
+        $venda->setDataVenda($linha['data_venda']);
     
         return $venda; 
     }
+
+    public function findByDataVenda(string $data) {
+        $sql = "SELECT * FROM venda WHERE data_venda LIKE :data ORDER BY data_venda";
+    
+        $conn = Conexao::conectar();
+        $query = $conn->prepare($sql);
+        $query->bindValue(':data', '%' . $data . '%', \PDO::PARAM_STR);
+        $query->execute();
+        $linhas = $query->fetchAll(\PDO::FETCH_ASSOC);
+        Conexao::desconectar();
+    
+        $lstVendas = [];
+        foreach ($linhas as $linha) {
+            $venda = new Venda();
+            $venda->setId($linha['id']);
+            $venda->setIdProduto($linha['idProduto']);
+            $venda->setIdCliente($linha['idCliente']);
+            $venda->setQtdeVendida($linha['qtde_vendida']);
+            $venda->setValorTotal($linha['valor']);
+            $venda->setDataVenda($linha['data_venda']);
+    
+            $lstVendas[] = $venda;
+        }
+    
+        return $lstVendas;
+    }
+    
     
     public function save(Venda $venda) {
-        $sql = "INSERT INTO venda (idProduto, idCliente, qtde_vendida, valor, data_venda) 
-                VALUES (:idProduto, :idCliente, :qtdeVendida, :valor, :dataVenda);";
-    
+        $sql = "INSERT INTO venda (idProduto, idCliente, qtde_vendida, valor, data_venda)
+                VALUES (:idProduto, :idCliente, :qtdeVendida, :valor, :dataVenda)";
+
         $conn = Conexao::conectar();
         $query = $conn->prepare($sql);
         $query->bindValue(':idProduto', $venda->getIdProduto());
@@ -73,11 +103,10 @@ class VendaDao {
     
 
     public function update(Venda $venda) {
-        $sql = "UPDATE venda 
-                SET idProduto = :idProduto, idCliente = :idCliente, qtde_vendida = :qtdeVendida, 
-                valor = :valor, data_venda = :dataVenda 
-                WHERE id = :id;";
-    
+        $sql = "UPDATE venda SET idProduto = :idProduto, idCliente = :idCliente, 
+                qtde_vendida = :qtdeVendida, valor = :valor, data_venda = :dataVenda 
+                WHERE id = :id";
+
         $conn = Conexao::conectar();
         $query = $conn->prepare($sql);
         $query->bindValue(':idProduto', $venda->getIdProduto());
@@ -90,7 +119,6 @@ class VendaDao {
         Conexao::desconectar();
     }
     
-
     public function deleteById(int $id) {
         $sql = "DELETE FROM venda WHERE id = :id;";
 

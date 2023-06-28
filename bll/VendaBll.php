@@ -18,6 +18,11 @@ class ProdutoBll {
         return $dao->findById($id);
     }
 
+    public function findByDataVenda(string $data) {
+        $dao = new VendaDao();
+        return $dao->findByDataVenda($data);
+    }
+
     public function save(Venda $venda) {
         $dao = new VendaDao();
         return $dao->save($venda);
