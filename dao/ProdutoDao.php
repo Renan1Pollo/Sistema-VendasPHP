@@ -123,8 +123,8 @@ class ProdutoDao {
 
         $conn = Conexao::conectar();
         $query = $conn->prepare($sql);
-        $query->bindValue(':id', $produto->getId(), \PDO::PARAM_INT);
         $query->bindValue(':qtdeEstoque', $produto->getQtdeEstoque(), \PDO::PARAM_INT);
+        $query->bindValue(':id', $produto->getId(), \PDO::PARAM_INT);
         $query->execute();
         Conexao::desconectar();
     }

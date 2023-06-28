@@ -31,8 +31,9 @@ class Produto {
     }
 
     public function setIdCategoria(int $idCategoria) {
-        return $this->idCategoria = $idCategoria;
+        $this->idCategoria = $idCategoria;
     }
+    
 
     public function getQtdeEstoque() {
         return $this->qtdeEstoque;

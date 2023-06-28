@@ -13,6 +13,7 @@ $venda->setIdProduto($_POST['idProduto']);
 $venda->setDataVenda($_POST['data_venda']);
 $venda->setQtdeVendida($_POST['qtde_vendida']);
 $venda->setValor($_POST['valor']);
+$venda->setValor($_POST['valor']);
 $venda->setDataVenda($_POST['data_venda']);
 
 

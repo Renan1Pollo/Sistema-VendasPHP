@@ -114,7 +114,7 @@ if ($busca == null) {
                             </tbody>
                         </table>
                         <div class="card-compra">
-                            <a onclick="JavaScript:updateEstoque()" href="index.php" class="btn btn-primary">Vender</a>
+                            <a onclick="JavaScript:updateEstoque()" class="btn btn-primary">Vender</a>
                             <?php
                                 $valorTotal = 0;
                                 foreach ($lstVenda as $venda) {
@@ -154,7 +154,7 @@ if ($busca == null) {
     }
 
     function updateEstoque() {
-        let resposta = prompt("Digite o id da Venda: ");
-        location.href = 'updateVenda.php?id=' + id;
+        let id = prompt("Digite o id da Venda: ");
+        location.href = 'fecharVenda.php?id=' + id;
     }
 </script>
