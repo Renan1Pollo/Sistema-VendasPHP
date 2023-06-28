@@ -8,7 +8,7 @@ class Venda {
     private $idCliente;
     private $idProduto;
     private $qtdeVendida;
-    private $valorTotal;
+    private $valor;
     private $dataVenda;
 
     public function getId() {
@@ -43,12 +43,12 @@ class Venda {
         $this->qtdeVendida = $qtdeVendida;
     }
 
-    public function getValorTotal() {
-        return $this->valorTotal;
+    public function getValor() {
+        return $this->valor;
     }
 
-    public function setValorTotal(float $valorTotal) {
-        $this->valorTotal = $valorTotal;
+    public function setValor(float $valor) {
+        $this->valor = $valor;
     }
 
     public function getDataVenda() {

@@ -59,7 +59,7 @@ $venda = $bll->findById($id);
 
                             <div class="mb-3">
                                 <label>Valor</label>
-                                <input type="number" name="valor" class="form-control" placeholder="<?php echo $venda->getValorTotal(); ?>">
+                                <input type="number" name="valor" class="form-control" placeholder="<?php echo $venda->getValor(); ?>">
                             </div>
 
                             <div class="mb-3">

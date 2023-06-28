@@ -117,5 +117,17 @@ class ProdutoDao {
         Conexao::desconectar();
     }
 
+    public function updateEstoque(Produto $produto) {
+        $sql = "UPDATE produto SET qtde_estoque = :qtdeEstoque 
+            WHERE id = :id;";
+
+        $conn = Conexao::conectar();
+        $query = $conn->prepare($sql);
+        $query->bindValue(':id', $produto->getId(), \PDO::PARAM_INT);
+        $query->bindValue(':qtdeEstoque', $produto->getQtdeEstoque(), \PDO::PARAM_INT);
+        $query->execute();
+        Conexao::desconectar();
+    }
+
 }
 ?>

@@ -26,7 +26,6 @@ if ($busca == null) {
         $lstVenda = [$venda];
     else
         $lstVenda = [];
-
 } else {
     $lstVenda = $bll->findByDataVenda($busca);
 }
@@ -66,7 +65,7 @@ if ($busca == null) {
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
+                                    <th>ID da Venda</th>
                                     <th>Produto</th>
                                     <th>Cliente</th>
                                     <th>Data</th>
@@ -83,14 +82,14 @@ if ($busca == null) {
                                         </td>
                                         <td>
                                             <?php
-                                                $produto = $produtoBll->findById($venda->getIdProduto());
-                                                echo $produto->getDescricao();
+                                            $produto = $produtoBll->findById($venda->getIdProduto());
+                                            echo $produto->getDescricao();
                                             ?>
                                         </td>
                                         <td>
                                             <?php
-                                                $cliente = $clienteBll->findById($venda->getIdCliente());
-                                                echo $cliente->getNome();
+                                            $cliente = $clienteBll->findById($venda->getIdCliente());
+                                            echo $cliente->getNome();
                                             ?>
                                         </td>
                                         <td>
@@ -100,22 +99,32 @@ if ($busca == null) {
                                             <?php echo $venda->getQtdeVendida(); ?>
                                         </td>
                                         <td>
-                                            <?php echo $venda->getValorTotal(); ?>
+                                            <?php echo $venda->getValor(); ?>
                                         </td>
                                         <td>
                                             <a href="addVenda.php" class="btn btn-primary btn-sm">Adicionar
                                                 Venda</a>
 
-                                            <a href="attVenda.php?id=<?= $venda->getId(); ?>"
-                                                class="btn btn-success btn-sm">Editar</a>
+                                            <a href="attVenda.php?id=<?= $venda->getId(); ?>" class="btn btn-success btn-sm">Editar</a>
 
-                                            <a onclick="JavaScript:remover(<?php echo $venda->getId(); ?>)"
-                                                class="btn btn-danger btn-sm">Excluir</a>
+                                            <a onclick="JavaScript:remover(<?php echo $venda->getId(); ?>)" class="btn btn-danger btn-sm">Excluir</a>
                                         </td>
                                     </tr>
                                 <?php } ?>
                             </tbody>
                         </table>
+                        <div class="card-compra">
+                            <a onclick="JavaScript:updateEstoque()" href="index.php" class="btn btn-primary">Vender</a>
+                            <?php
+                                $valorTotal = 0;
+                                foreach ($lstVenda as $venda) {
+                                    $produto = $produtoBll->findById($venda->getIdProduto());
+                                    $valorTotal += $venda->getValor() * $produto->getQtdeEstoque();
+                                } 
+                            ?>
+                            <input type="text" class="float-end" value="<?php echo $valorTotal; ?>" readonly>
+                            <label id="valor-total" class="float-end ">Valor Total da Compra:</label>
+                        </div>
                     </div>
                     <div class="card-footer">
                         <h4>
@@ -142,5 +151,10 @@ if ($busca == null) {
         if (confirm('Excluir a Venda ' + id + '?')) {
             location.href = 'remoVenda.php?id=' + id;
         }
+    }
+
+    function updateEstoque() {
+        let resposta = prompt("Digite o id da Venda: ");
+        location.href = 'updateVenda.php?id=' + id;
     }
 </script>

@@ -32,10 +32,16 @@ class ProdutoBll {
         $dao = new ProdutoDao();
         return $dao->update($produto);
     }
-
+    
+    public function updateEstoque(Produto $produto) {
+        $dao = new ProdutoDao();
+        return $dao->update($produto);
+    }
+    
     public function deleteById(int $id) {
         $dao = new ProdutoDao();
         return $dao->deleteById($id);
     }
+
 }
 ?>

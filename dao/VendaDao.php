@@ -25,7 +25,7 @@ class VendaDao {
             $venda->setIdProduto($linha['idProduto']);
             $venda->setIdCliente($linha['idCliente']);
             $venda->setQtdeVendida($linha['qtde_vendida']);
-            $venda->setValorTotal($linha['valor']);
+            $venda->setValor($linha['valor']);
             $venda->setDataVenda($linha['data_venda']);
 
             $lstVendas[] = $venda;
@@ -53,7 +53,7 @@ class VendaDao {
         $venda->setIdProduto($linha['idProduto']);
         $venda->setIdCliente($linha['idCliente']);
         $venda->setQtdeVendida($linha['qtde_vendida']);
-        $venda->setValorTotal($linha['valor']);
+        $venda->setValor($linha['valor']);
         $venda->setDataVenda($linha['data_venda']);
     
         return $venda; 
@@ -76,7 +76,7 @@ class VendaDao {
             $venda->setIdProduto($linha['idProduto']);
             $venda->setIdCliente($linha['idCliente']);
             $venda->setQtdeVendida($linha['qtde_vendida']);
-            $venda->setValorTotal($linha['valor']);
+            $venda->setValor($linha['valor']);
             $venda->setDataVenda($linha['data_venda']);
     
             $lstVendas[] = $venda;
@@ -95,7 +95,7 @@ class VendaDao {
         $query->bindValue(':idProduto', $venda->getIdProduto());
         $query->bindValue(':idCliente', $venda->getIdCliente());
         $query->bindValue(':qtdeVendida', $venda->getQtdeVendida());
-        $query->bindValue(':valor', $venda->getValorTotal());
+        $query->bindValue(':valor', $venda->getValor());
         $query->bindValue(':dataVenda', $venda->getDataVenda());
         $query->execute();
         Conexao::desconectar();
@@ -112,7 +112,7 @@ class VendaDao {
         $query->bindValue(':idProduto', $venda->getIdProduto());
         $query->bindValue(':idCliente', $venda->getIdCliente());
         $query->bindValue(':qtdeVendida', $venda->getQtdeVendida());
-        $query->bindValue(':valor', $venda->getValorTotal());
+        $query->bindValue(':valor', $venda->getValor());
         $query->bindValue(':dataVenda', $venda->getDataVenda());
         $query->bindValue(':id', $venda->getId());
         $query->execute();
