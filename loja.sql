@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 22/06/2023 às 03:59
+-- Tempo de geração: 28/06/2023 às 02:13
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -52,6 +52,17 @@ CREATE TABLE `categoria` (
   `descricao` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Despejando dados para a tabela `categoria`
+--
+
+INSERT INTO `categoria` (`id`, `descricao`) VALUES
+(1, 'Camisetas'),
+(2, 'Calças'),
+(3, 'Moletons'),
+(4, 'Sapatos'),
+(5, 'Acessórios');
+
 -- --------------------------------------------------------
 
 --
@@ -60,13 +71,24 @@ CREATE TABLE `categoria` (
 
 CREATE TABLE `cliente` (
   `id` int(11) NOT NULL,
-  `nome` varchar(100) DEFAULT NULL,
+  `nome` varchar(255) DEFAULT NULL,
   `data_nascimento` date DEFAULT NULL,
-  `cpf` varchar(14) DEFAULT NULL,
+  `cpf` varchar(12) DEFAULT NULL,
   `estado` varchar(50) DEFAULT NULL,
-  `cidade` varchar(50) DEFAULT NULL,
+  `cidade` varchar(100) DEFAULT NULL,
   `telefone` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `cliente`
+--
+
+INSERT INTO `cliente` (`id`, `nome`, `data_nascimento`, `cpf`, `estado`, `cidade`, `telefone`) VALUES
+(1, 'João', '1990-01-01', '12345678901', 'São Paulo', 'São Paulo', '123456789'),
+(2, 'Maria', '1985-02-02', '98765432109', 'São Paulo', 'São Paulo', '987654321'),
+(3, 'Pedro', '1995-03-03', '45678912345', 'Rio de Janeiro', 'Rio de Janeiro', '456789123'),
+(4, 'Gabrielle', '1980-04-04', '65432198709', 'Paraná', 'Curitiba', '654321987'),
+(5, 'Carlos', '1992-05-05', '98765432100', 'Bahia', 'Salvador', '987654321');
 
 -- --------------------------------------------------------
 
@@ -78,10 +100,22 @@ CREATE TABLE `produto` (
   `id` int(11) NOT NULL,
   `descricao` varchar(100) DEFAULT NULL,
   `qtde_estoque` int(11) DEFAULT NULL,
-  `preco_custo` decimal(10,2) DEFAULT NULL,
-  `preco_venda` decimal(10,2) DEFAULT NULL,
+  `valor_unitario` decimal(10,2) DEFAULT NULL,
   `idCategoria` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `produto`
+--
+
+INSERT INTO `produto` (`id`, `descricao`, `qtde_estoque`, `valor_unitario`, `idCategoria`) VALUES
+(1, 'Camiseta Nike Masculina', 50, 379.96, 1),
+(2, 'Moletom Blunt com Capuz', 20, 503.96, 3),
+(3, 'Tênis Nike Air Max 270', 15, 569.98, 4),
+(4, 'Calça Cargo Unissex', 25, 683.96, 2),
+(5, 'Moletom Blunt Unissex', 15, 607.96, 3),
+(6, 'Tênis Puma RS-X', 10, 987.96, 4),
+(7, 'Colar de Prata com Pingente', 50, 303.96, 5);
 
 -- --------------------------------------------------------
 
@@ -91,9 +125,11 @@ CREATE TABLE `produto` (
 
 CREATE TABLE `venda` (
   `id` int(11) NOT NULL,
-  `idCliente` int(11) DEFAULT NULL,
-  `data_venda` date DEFAULT NULL,
-  `valor_total` decimal(10,2) DEFAULT NULL
+  `idCliente` int(11) NOT NULL,
+  `idProduto` int(11) NOT NULL,
+  `qtde_vendida` int(11) NOT NULL,
+  `valor` float NOT NULL,
+  `data_venda` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -144,7 +180,8 @@ ALTER TABLE `produto`
 --
 ALTER TABLE `venda`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `idCliente` (`idCliente`);
+  ADD KEY `idCliente` (`idCliente`),
+  ADD KEY `idProduto` (`idProduto`);
 
 --
 -- Índices de tabela `vendaproduto`
@@ -168,25 +205,25 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT de tabela `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de tabela `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `produto`
 --
 ALTER TABLE `produto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de tabela `venda`
 --
 ALTER TABLE `venda`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `vendaproduto`
@@ -208,7 +245,8 @@ ALTER TABLE `produto`
 -- Restrições para tabelas `venda`
 --
 ALTER TABLE `venda`
-  ADD CONSTRAINT `venda_ibfk_1` FOREIGN KEY (`idCliente`) REFERENCES `cliente` (`id`);
+  ADD CONSTRAINT `venda_ibfk_1` FOREIGN KEY (`idCliente`) REFERENCES `cliente` (`id`),
+  ADD CONSTRAINT `venda_ibfk_2` FOREIGN KEY (`idProduto`) REFERENCES `produto` (`id`);
 
 --
 -- Restrições para tabelas `vendaproduto`
